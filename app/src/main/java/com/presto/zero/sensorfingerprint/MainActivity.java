@@ -22,8 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        View rootView = this.getWindow().getDecorView().getRootView();
-        Log.v("ROOTVIEW", + rootView.getWidth() + " " + rootView.getHeight());
+
 
         buttonArray = new Button[9];
 
@@ -57,6 +56,12 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             }
         });
     }
+
+//    @Override
+//    public void onWindowFocusChanged(boolean hasFocus) {
+//        View rootView = findViewById(R.id.activity_main);
+//        Log.v("ROOTVIEW", rootView.toString() + rootView.getWidth() + " " + rootView.getHeight());
+//    }
 
     @Override
     protected void onResume() {
