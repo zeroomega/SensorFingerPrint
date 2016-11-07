@@ -12,18 +12,31 @@ import android.view.View;
 
 public class EventUtil implements SensorEventListener, View.OnTouchListener {
 
-    @Override
-    public void onSensorChanged(SensorEvent sensorEvent) {
+  LogUtil logUtil = LogUtil.getInstance();
 
+  private static EventUtil instance;
+
+  public static EventUtil getInstance() {
+    if (instance == null) {
+      instance = new EventUtil();
     }
+    return instance;
+  }
 
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int i) {
+  @Override
+  public void onSensorChanged(SensorEvent sensorEvent) {
+    logUtil.logEvent(sensorEvent);
+  }
 
-    }
+  @Override
+  public void onAccuracyChanged(Sensor sensor, int i) {
 
-    @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        return false;
-    }
+  }
+
+  @Override
+  public boolean onTouch(View view, MotionEvent motionEvent) {
+
+    logUtil.logEvent(view, motionEvent);
+    return false;
+  }
 }
